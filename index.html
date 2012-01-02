@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <head>
+		<style type="text/css">
+* {font-family:Verdana, Geneva, sans-serif}
+h1,h2,h3,h4 {color:#505050}
+		</style>
+    	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    	<!-- Data -->
+    	<script type="text/javascript">
+    		diaryData = [ 
+    						{"year": 2011, "month":10, "day":24,"timeboxes":[3,0,9], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":10, "day":25,"timeboxes":[3,1,11]},
+    						{"year": 2011, "month":10, "day":26,"timeboxes":[3,0,2], "events": ["physiotherapy", "BradLUG"]},
+    						{"year": 2011, "month":10, "day":27,"timeboxes":[3,2,11]},
+    						{"year": 2011, "month":10, "day":28,"timeboxes":[3,3,6], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":10, "day":29,"timeboxes":[3,3,3], "events": ["party"]},
+    						{"year": 2011, "month":10, "day":30,"timeboxes":[3,4,9]},
+    						{"year": 2011, "month":10, "day":31,"timeboxes":[3,5,0], "events": ["physiotherapy", "cricket"]},
+    						{"year": 2011, "month":11, "day":1,"timeboxes":[3,5,8]},
+    						{"year": 2011, "month":11, "day":2,"timeboxes":[3,0,6], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":3,"timeboxes":[3,6,7]},
+    						{"year": 2011, "month":11, "day":4,"timeboxes":[3,4,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":5,"timeboxes":[3,6,6]},
+    						{"year": 2011, "month":11, "day":6,"timeboxes":[3,7,3]},
+    						{"year": 2011, "month":11, "day":7,"timeboxes":[3,2,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":8,"timeboxes":[2,3,3], "events": ["Agile Yorkshire"]},
+    						{"year": 2011, "month":11, "day":9,"timeboxes":[3,5,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":10,"timeboxes":[3,12,0]},
+    						{"year": 2011, "month":11, "day":11,"timeboxes":[2,1,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":12,"timeboxes":[0,0,0], "notes": "Kate Visit"},
+    						{"year": 2011, "month":11, "day":13,"timeboxes":[0,0,0], "notes": "Kate Visit"},
+    						{"year": 2011, "month":11, "day":14,"timeboxes":[3,7,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":15,"timeboxes":[3,13,0]},
+    						{"year": 2011, "month":11, "day":16,"timeboxes":[2,3,0], "events": ["physiotherapy"], "notes": "Eye Test"},
+    						{"year": 2011, "month":11, "day":17,"timeboxes":[3,14,0]},
+    						{"year": 2011, "month":11, "day":18,"timeboxes":[3,6,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":19,"timeboxes":[3,14,0]},
+    						{"year": 2011, "month":11, "day":20,"timeboxes":[3,3,0]},
+    						{"year": 2011, "month":11, "day":21,"timeboxes":[0,1,0], "events": ["physiotherapy"], "notes":"Lunch In Manchester"},
+    						{"year": 2011, "month":11, "day":22,"timeboxes":[3,15,0]},
+    						{"year": 2011, "month":11, "day":23,"timeboxes":[2,0,0], "notes": "Kate Visit"},
+    						{"year": 2011, "month":11, "day":24,"timeboxes":[0,0,0], "notes": "Kate Visit"},
+    						{"year": 2011, "month":11, "day":25,"timeboxes":[0,0,0], "events": ["physiotherapy"], "notes": "Kate Visit"},
+    						{"year": 2011, "month":11, "day":26,"timeboxes":[3,14,0]},
+    						{"year": 2011, "month":11, "day":27,"timeboxes":[3,14,0]},
+    						{"year": 2011, "month":11, "day":28,"timeboxes":[3,2,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":11, "day":29,"timeboxes":[3,16,0]},
+    						{"year": 2011, "month":11, "day":30,"timeboxes":[3,2,0], "events": ["physiotherapy", "BradLUG"]},
+    						{"year": 2011, "month":12, "day":1,"timeboxes":[3,16,0]},
+    						{"year": 2011, "month":12, "day":2,"timeboxes":[3,2,0], "events": ["physiotherapy"], "notes":"Curry"},
+    						{"year": 2011, "month":12, "day":3,"timeboxes":[0,0,0], "notes":"Clayton Dickensian Market"},
+    						{"year": 2011, "month":12, "day":4,"timeboxes":[3,16,0]},
+    						{"year": 2011, "month":12, "day":5,"timeboxes":[0,0,0], "notes":"Daresbury"},
+    						{"year": 2011, "month":12, "day":6,"timeboxes":[3,2,0]},
+    						{"year": 2011, "month":12, "day":7,"timeboxes":[3,17,0]},
+    						{"year": 2011, "month":12, "day":8,"timeboxes":[3,3,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":12, "day":9,"timeboxes":[3,17,0]},
+    						{"year": 2011, "month":12, "day":10,"timeboxes":[2,4,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":12, "day":11,"timeboxes":[3,15,0]},
+    						{"year": 2011, "month":12, "day":12,"timeboxes":[3,8,0]},
+    						{"year": 2011, "month":12, "day":13,"timeboxes":[3,8,0], "events": ["Agile Yorkshire"]},
+    						{"year": 2011, "month":12, "day":14,"timeboxes":[0,7,0], "notes":"London Visit"},
+    						{"year": 2011, "month":12, "day":15,"timeboxes":[0,5,0], "notes":"London Visit"},
+    						{"year": 2011, "month":12, "day":16,"timeboxes":[0,5,0], "notes":"London Visit"},
+    						{"year": 2011, "month":12, "day":17,"timeboxes":[0,7,0], "notes":"London Visit"},
+    						{"year": 2011, "month":12, "day":18,"timeboxes":[0,7,0], "notes":"London Visit"},
+    						{"year": 2011, "month":12, "day":19,"timeboxes":[1,3,0], "notes":"Manchester Visit"},
+    						{"year": 2011, "month":12, "day":20,"timeboxes":[3,13,0]},
+    						{"year": 2011, "month":12, "day":21,"timeboxes":[3,7,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":12, "day":22,"timeboxes":[3,14,0]},
+    						{"year": 2011, "month":12, "day":23,"timeboxes":[3,5,0]},
+    						{"year": 2011, "month":12, "day":24,"timeboxes":[3,6,0]},
+    						{"year": 2011, "month":12, "day":25,"timeboxes":[2,0,0], "notes": "Christmas"},
+    						{"year": 2011, "month":12, "day":26,"timeboxes":[0,0,0], "notes": "Christmas"},
+    						{"year": 2011, "month":12, "day":27,"timeboxes":[2,2,0], "notes": "Christmas"},
+    						{"year": 2011, "month":12, "day":28,"timeboxes":[3,4,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":12, "day":29,"timeboxes":[3,12,0]},
+    						{"year": 2011, "month":12, "day":30,"timeboxes":[3,1,0], "events": ["physiotherapy"]},
+    						{"year": 2011, "month":12, "day":31,"timeboxes":[3,1,0], "notes": "New Year"},
+    						{"year": 2012, "month":1, "day":1,"timeboxes":[3,10,0], "notes": "New Year"},
+    						//{"year": 2012, "month":1, "day":2,"timeboxes":[0,0,0]}
+    						//{"year": 2012, "month":1, "day":2,"timeboxes":[0,0,0], "events": ["physiotherapy"]}
+    		];
+    		
+    		
+    		
+    		function Day(date, fortyFives, twentyFives, twenties, events, notes) {
+    			this.date = date;
+				this.fortyFives = fortyFives;
+				this.twentyFives = twentyFives;
+				this.twenties = twenties;
+				this.events = events;
+				this.notes = notes;
+				
+				this.totalMinutes = 45*fortyFives + 25*twentyFives + 20*twenties; 
+				this.hours = Math.floor(this.totalMinutes / 60);
+				this.minutes = this.totalMinutes - 60 * this.hours;
+    		}
+    		
+    		function day(entry) {
+    			return new Day(new Date(entry.year, entry.month - 1, entry.day), 
+							entry.timeboxes[0], entry.timeboxes[1], entry.timeboxes[2],
+							entry.events, entry.notes);
+    		}
+    		
+    		function days(data) {
+    			var results = []
+    			for (i in data) {
+       				results.push(day(data[i]));    				
+    			}
+    			return results;
+    		}
+    		
+			days = days(diaryData);
+			
+			diary = {"title": "Computer Time "}
+    		
+    	</script>
+    	
+    	<script type="text/javascript">
+	        google.load("visualization", "1", {packages:["annotatedtimeline"]});
+    	    google.setOnLoadCallback(build);
+    	    google.load("dojo", "1.6.1");
+    	    
+    	    function buildChart() {
+    	    	var rows = [];
+    	    	for (i in days) {
+    	    		var day = days[i];
+    	    		rows.push([day.date, day.totalMinutes]);
+    	    	}
+    	    	
+     	    	var tableData = new google.visualization.DataTable();
+     	    	tableData.addColumn('date', 'Date');
+     	    	tableData.addColumn('number', diary.title + "(minutes)");
+     	    	tableData.addRows(rows);
+     	    	var chartOptions = {};
+    	    	
+     	        var chart = new google.visualization.AnnotatedTimeLine(document.getElementById('timeline'));
+     	        chart.draw(tableData, chartOptions);
+    	    }
+    	    
+    	    function buildTableData(table) {
+    	    	dojo.forEach(days, function(day){
+    	    		var row = dojo.create("tr", null, table);
+        	    	dojo.create("td", {
+        	    		innerHTML: day.date.toDateString()}, row);
+        	    	dojo.create("td", {
+        	    		innerHTML: day.hours + "h " + day.minutes + "m"}, row);
+        	    	dojo.create("td", {
+        	    		innerHTML: day.totalMinutes}, row);
+        	    	dojo.create("td", {
+        	    		innerHTML: falseToEmpty(day.events)}, row);
+        	    	dojo.create("td", {
+        	    		innerHTML: falseToEmpty(day.notes)}, row);
+    	    	});
+    	    }
+    	    
+    	    function falseToEmpty(value) {
+    	    	if (value) {
+    	    		return value;
+    	    	} else {
+    	    		return "";
+    	    	}
+    	    }
+    	    
+    	    function buildTable() {
+    	    	var table = dojo.byId('details');
+    	    	buildTableData(table)
+    	    }
+    	    
+    	    function build() {
+    	    	buildTable();
+    	    	buildChart();
+    	    }
+    	</script>
+    </head>
+    <body>
+    <h1>Computer Time Diary</h1>
+    
+    <h2>Timeline</h2>
+    <div id='timeline' style='width: 80%; height:600px'></div>
+    
+    <h2>Diary Details</h2>
+    <table id='details'>
+    <caption>Daily Records</caption>
+    <tr>
+    	<th rowspan="2">Date</th>
+    	<th colspan="2">Computer Time</th>
+    	<th rowspan="2">Events</th>
+    	<th rowspan="2">Notes</th>
+    </tr>
+	<tr>
+		<th>Hours</th>
+		<th>Minutes</th>
+	</tr>    
+    </table>
+    </body>
+</html>
