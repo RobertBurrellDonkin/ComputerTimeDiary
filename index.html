@@ -33,7 +33,15 @@ table#details th {
 	padding: 5px;
 	color: gray;
 }
-
+td.date {
+	text-align:center
+}
+td.minutes {
+	text-align:center
+}
+td.hours {
+	text-align:center
+}
 table#details caption {
 	font-size:larger;
 	color:gray;
@@ -200,11 +208,11 @@ table#details caption {
     	    	dojo.forEach(days, function(day){
     	    		var row = dojo.create("tr", null, table);
         	    	dojo.create("td", {
-        	    		innerHTML: day.date.toDateString()}, row);
+        	    		innerHTML: day.date.toDateString(), class:'date'}, row);
         	    	dojo.create("td", {
-        	    		innerHTML: day.hours + "h " + day.minutes + "m"}, row);
+        	    		innerHTML: day.hours + "h " + day.minutes + "m", class:'hours'}, row);
         	    	dojo.create("td", {
-        	    		innerHTML: day.totalMinutes}, row);
+        	    		innerHTML: day.totalMinutes, class:'minutes'}, row);
         	    	dojo.create("td", {
         	    		innerHTML: falseToEmpty(day.events)}, row);
         	    	dojo.create("td", {
