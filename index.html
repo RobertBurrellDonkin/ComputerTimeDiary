@@ -157,21 +157,21 @@ table#details caption {
     						{"year": 2012, "month":1, "day":29,"timeboxes":[3,14,0]},
     						{"year": 2012, "month":1, "day":30,"timeboxes":[3,11,0], "events": ["physiotherapy"]},
     						{"year": 2012, "month":1, "day":31,"timeboxes":[3,8,0]},
-    						{"year": 2012, "month":2, "day":1,"timeboxes":[0,0,0,1], "events": ["physiotherapy", "work"]},
-    						{"year": 2012, "month":2, "day":2,"timeboxes":[0,0,0,1], "events": ["work"]},
-    						{"year": 2012, "month":2, "day":3,"timeboxes":[0,0,0,1], "events": ["physiotherapy", "work"]},
+    						{"year": 2012, "month":2, "day":1,"timeboxes":[0,0,0,8], "events": ["physiotherapy", "work"], "notes": ["Started work"]},
+    						{"year": 2012, "month":2, "day":2,"timeboxes":[0,0,0,8], "events": ["work"]},
+    						{"year": 2012, "month":2, "day":3,"timeboxes":[0,0,0,8], "events": ["physiotherapy", "work"]},
     						{"year": 2012, "month":2, "day":4,"timeboxes":[0,0,0]},
-    						{"year": 2012, "month":2, "day":5,"timeboxes":[0,0,0,1], "events": ["physiotherapy", "work"]},
-    						{"year": 2012, "month":2, "day":6,"timeboxes":[0,0,0,1], "events": ["work"]},
-    						{"year": 2012, "month":2, "day":7,"timeboxes":[0,0,0,1], "events": ["physiotherapy", "work"]},
-    						{"year": 2012, "month":2, "day":8,"timeboxes":[0,0,0,1], "events": ["physiotherapy", "work"]},
-    						{"year": 2012, "month":2, "day":9,"timeboxes":[0,0,0,1], "events": ["work"]},
-    						{"year": 2012, "month":2, "day":10,"timeboxes":[0,0,0,1], "events": ["physiotherapy", "work"]},
+    						{"year": 2012, "month":2, "day":5,"timeboxes":[0,0,0,8], "events": ["physiotherapy", "work"]},
+    						{"year": 2012, "month":2, "day":6,"timeboxes":[0,0,0,8], "events": ["work"]},
+    						{"year": 2012, "month":2, "day":7,"timeboxes":[0,0,0,8], "events": ["physiotherapy", "work"]},
+    						{"year": 2012, "month":2, "day":8,"timeboxes":[0,0,0,8], "events": ["physiotherapy", "work"]},
+    						{"year": 2012, "month":2, "day":9,"timeboxes":[0,0,0,8], "events": ["work"]},
+    						{"year": 2012, "month":2, "day":10,"timeboxes":[0,0,0,8], "events": ["physiotherapy", "work"]},
     						{"year": 2012, "month":2, "day":11,"timeboxes":[0,0,0], "events": ["hack to the future"]},
-    						{"year": 2012, "month":2, "day":12,"timeboxes":[0,0,0,1], "events": ["hack to the future"]}
+    						{"year": 2012, "month":2, "day":12,"timeboxes":[0,0,0,8], "events": ["hack to the future"]}
     		];
     		
-    		function Day(date, fortyFives, twentyFives, twenties, events, notes) {
+    		function Day(date, fortyFives, twentyFives, twenties, hours, events, notes) {
     			this.date = date;
 				this.fortyFives = fortyFives;
 				this.twentyFives = twentyFives;
@@ -179,14 +179,18 @@ table#details caption {
 				this.events = events;
 				this.notes = notes;
 				
-				this.totalMinutes = 45*fortyFives + 25*twentyFives + 20*twenties; 
+				this.totalMinutes = 45*fortyFives + 25*twentyFives + 20*twenties + 60*hours; 
 				this.hours = Math.floor(this.totalMinutes / 60);
 				this.minutes = this.totalMinutes - 60 * this.hours;
     		}
     		
     		function day(entry) {
+    			hours = 0;
+    			if (entry.timeboxes.length > 3) {
+    				hours = entry.timeboxes[3];
+    			}
     			return new Day(new Date(entry.year, entry.month - 1, entry.day), 
-							entry.timeboxes[0], entry.timeboxes[1], entry.timeboxes[2],
+							entry.timeboxes[0], entry.timeboxes[1], entry.timeboxes[2], hours,
 							entry.events, entry.notes);
     		}
     		
