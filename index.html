@@ -360,8 +360,10 @@ table#details caption {
     		
     		function days(data) {
     			var results = []
+    			var max = 0;
     			for (i in data) {
-       				results.push(day(data[i]));    				
+    				var nextDay = day(data[i]);
+       				results.push(nextDay);    				
     			}
     			return results;
     		}
