@@ -347,6 +347,13 @@ table#details caption {
 				this.hours = Math.floor(this.totalMinutes / 60);
 				this.minutes = this.totalMinutes - 60 * this.hours;
 				this.max = this.minutes;
+				
+				this.runningMax = function(lastMax) {
+					if (this.max < lastMax) {
+						this.max = lastMax;
+					}
+					return this.max;
+				}
     		}
     		
     		function day(entry) {
@@ -364,6 +371,7 @@ table#details caption {
     			var max = 0;
     			for (i in data) {
     				var nextDay = day(data[i]);
+    				max = nextDay.runningMax(max);
        				results.push(nextDay);    				
     			}
     			return results;
