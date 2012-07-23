@@ -356,6 +356,18 @@ table#details caption {
 				}
     		}
     		
+    		function Aggregator() {
+    			this.queue = [];
+    			
+    			this.accumulate = function(day) {
+    				this.queue.push(day);
+    			}
+    			
+    			this.arithmeticMean = function() {
+    				
+    			}
+    		}
+    		
     		function day(entry) {
     			hours = 0;
     			if (entry.timeboxes.length > 3) {
