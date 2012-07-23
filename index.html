@@ -356,11 +356,19 @@ table#details caption {
 				}
     		}
     		
-    		function Aggregator() {
+    		function Aggregator(limit) {
+    			if (limit == undefined) {
+    				this.limit = -1;
+    			} else {
+    				this.limit = limit
+    			}
     			this.queue = [];
     			
     			this.accumulate = function(day) {
-    				this.queue.push(day);
+    				size = this.queue.push(day);
+    				if (this.limit > 0 && this.limit < size) {
+    					this.queue.shift();
+    				}
     			}
 
     			this.sum = function() {
