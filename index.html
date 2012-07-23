@@ -392,12 +392,13 @@ table#details caption {
     	    	var rows = [];
     	    	for (i in days) {
     	    		var day = days[i];
-    	    		rows.push([day.date, day.totalMinutes]);
+    	    		rows.push([day.date, day.totalMinutes, day.max]);
     	    	}
     	    	
      	    	var tableData = new google.visualization.DataTable();
      	    	tableData.addColumn('date', 'Date');
      	    	tableData.addColumn('number', diary.title + "(minutes)");
+     	    	tableData.addColumn('number', "Running maximum");
      	    	tableData.addRows(rows);
      	    	var chartOptions = {};
     	    	
