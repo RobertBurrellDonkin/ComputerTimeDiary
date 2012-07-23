@@ -362,9 +362,17 @@ table#details caption {
     			this.accumulate = function(day) {
     				this.queue.push(day);
     			}
+
+    			this.sum = function() {
+    				var sum = 0;
+    				for (i in this.queue) {
+        				sum = sum + this.queue[i].totallMinutes;
+    				}
+    				return sum;
+    			}
     			
     			this.arithmeticMean = function() {
-    				
+    				return this.sum / this.queue.length;
     			}
     		}
     		
