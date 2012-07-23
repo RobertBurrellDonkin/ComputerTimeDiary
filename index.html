@@ -420,10 +420,17 @@ table#details caption {
     	    function buildChart() {
     	    	var rows = [];
     	    	var stats = new Aggregator();
+    	    	var rolling7stats = new Aggregator(7);
     	    	for (i in days) {
     	    		var day = days[i];
     	    		stats.accumulate(day);
-    	    		rows.push([day.date, day.totalMinutes, day.max, stats.arithmeticMean()]);
+    	    		rolling7stats.accumulate(day);
+    	    		rows.push([
+    	    		           day.date, 
+    	    		           day.totalMinutes, 
+    	    		           day.max, 
+    	    		           stats.arithmeticMean(),
+    	    		           rolling7stats.arithmeticMean()]);
     	    	}
     	    	
      	    	var tableData = new google.visualization.DataTable();
@@ -431,6 +438,7 @@ table#details caption {
      	    	tableData.addColumn('number', diary.title + "(minutes)");
      	    	tableData.addColumn('number', "Running maximum");
      	    	tableData.addColumn('number', "Mean (to date)");
+     	    	tableData.addColumn('number', "7 day rolling avg.");
      	    	tableData.addRows(rows);
      	    	var chartOptions = {};
     	    	
