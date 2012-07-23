@@ -366,13 +366,14 @@ table#details caption {
     			this.sum = function() {
     				var sum = 0;
     				for (i in this.queue) {
-        				sum = sum + this.queue[i].totallMinutes;
+        				sum = sum + this.queue[i].totalMinutes;
     				}
     				return sum;
     			}
     			
     			this.arithmeticMean = function() {
-    				return this.sum / this.queue.length;
+    				console.log("Sum: " + this.sum() + " size: " + this.queue.length)
+    				return this.sum() / this.queue.length;
     			}
     		}
     		
@@ -410,15 +411,18 @@ table#details caption {
     	    
     	    function buildChart() {
     	    	var rows = [];
+    	    	var stats = new Aggregator();
     	    	for (i in days) {
     	    		var day = days[i];
-    	    		rows.push([day.date, day.totalMinutes, day.max]);
+    	    		stats.accumulate(day);
+    	    		rows.push([day.date, day.totalMinutes, day.max, stats.arithmeticMean()]);
     	    	}
     	    	
      	    	var tableData = new google.visualization.DataTable();
      	    	tableData.addColumn('date', 'Date');
      	    	tableData.addColumn('number', diary.title + "(minutes)");
      	    	tableData.addColumn('number', "Running maximum");
+     	    	tableData.addColumn('number', "Mean (to date)");
      	    	tableData.addRows(rows);
      	    	var chartOptions = {};
     	    	
