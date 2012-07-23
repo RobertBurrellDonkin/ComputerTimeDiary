@@ -346,7 +346,7 @@ table#details caption {
 				this.totalMinutes = 45*fortyFives + 25*twentyFives + 20*twenties + 60*hours; 
 				this.hours = Math.floor(this.totalMinutes / 60);
 				this.minutes = this.totalMinutes - 60 * this.hours;
-				this.max = this.minutes;
+				this.max = this.totalMinutes;
 				
 				this.runningMax = function(lastMax) {
 					if (this.max < lastMax) {
