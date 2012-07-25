@@ -421,6 +421,7 @@ table#details caption {
     	    	var rows = [];
     	    	var stats = new Aggregator();
     	    	var rolling7stats = new Aggregator(7);
+    	    	var rolling30stats = new Aggregator(30);
     	    	for (i in days) {
     	    		var day = days[i];
     	    		stats.accumulate(day);
