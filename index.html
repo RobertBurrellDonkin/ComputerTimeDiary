@@ -426,12 +426,14 @@ table#details caption {
     	    		var day = days[i];
     	    		stats.accumulate(day);
     	    		rolling7stats.accumulate(day);
+    	    		rolling30stats.accumulate(day);
     	    		rows.push([
     	    		           day.date, 
     	    		           day.totalMinutes, 
     	    		           day.max, 
     	    		           stats.arithmeticMean(),
-    	    		           rolling7stats.arithmeticMean()]);
+    	    		           rolling7stats.arithmeticMean(),
+    	    		           rolling30stats.arithmeticMean()]);
     	    	}
     	    	
      	    	var tableData = new google.visualization.DataTable();
@@ -440,6 +442,7 @@ table#details caption {
      	    	tableData.addColumn('number', "Running maximum");
      	    	tableData.addColumn('number', "Mean (to date)");
      	    	tableData.addColumn('number', "7 day rolling avg.");
+     	    	tableData.addColumn('number', "30 day rolling avg.");
      	    	tableData.addRows(rows);
      	    	var chartOptions = {};
     	    	
