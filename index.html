@@ -383,6 +383,26 @@ table#details caption {
     				console.log("Sum: " + this.sum() + " size: " + this.queue.length)
     				return this.sum() / this.queue.length;
     			}
+    			
+    			this.max = function() {
+    				var max = 0;
+    				for (i in this.queue) {
+    					var next = this.queue[i].totalMinutes;
+    					if (max < next) {
+    						max = next;
+    					} 
+    				}
+    				return max;
+    			}
+
+    			this.median = function() {
+    				var values = [];
+    				for (i in this.queue) {
+    					values.push(this.queue[i].totalMinutes);
+    				}
+					values.sort();
+					return values[Math.floor(values.length/2)];
+    			}
     		}
     		
     		function day(entry) {
@@ -432,6 +452,7 @@ table#details caption {
     	    		           day.totalMinutes, 
     	    		           day.max, 
     	    		           stats.arithmeticMean(),
+    	    		           stats.median(),
     	    		           rolling7stats.arithmeticMean(),
     	    		           rolling30stats.arithmeticMean()]);
     	    	}
@@ -441,8 +462,9 @@ table#details caption {
      	    	tableData.addColumn('number', diary.title + "(minutes)");
      	    	tableData.addColumn('number', "Running maximum");
      	    	tableData.addColumn('number', "Mean (to date)");
-     	    	tableData.addColumn('number', "7 day rolling avg.");
-     	    	tableData.addColumn('number', "30 day rolling avg.");
+     	    	tableData.addColumn('number', "Median (to date)");
+     	    	tableData.addColumn('number', "7 day rolling mean");
+     	    	tableData.addColumn('number', "30 day rolling mean");
      	    	tableData.addRows(rows);
      	    	var chartOptions = {};
     	    	
